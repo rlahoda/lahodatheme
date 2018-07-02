@@ -1,0 +1,137 @@
+.paragraph--type--layout-two-column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  @include respond-at($bp-med) {
+    flex-direction: row;
+  }
+  padding: 0 2%;
+  @include respond-at($bp-med) {
+    padding: 0 5%;
+  }
+  @include respond-at($bp-large) {
+    padding: 0 10%;
+  }
+}
+
+.paragraph--type--layout-two-column-column {
+  & > div > .paragraph--type--content-node-list--content {
+    flex-direction: column;
+
+    & > .node--basic-paragraphs-page--teaser--container {
+      width: 100%;
+    }
+  }
+  flex: 1 1 auto;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  display: flex; //added to add safari compatibility and make images stretch to fill flex height
+  flex-direction: column; //added because paragraphs nested inside the column were showing up next to each other instead of stacked
+  align-items: stretch; //also added for safari compatibility
+  @include respond-at($bp-med) {
+    width: 44%;
+    // margin: 0 2.5%;
+  }
+  @include respond-at($bp-large) {
+    width: 38.5%;
+    // margin: 0 5%;
+  }
+}
+
+
+.paragraph--type--layout-two-column-column {
+  & > div > div > .paragraph--type--content-node-list--content {
+    flex-direction: column;
+
+    & > .node--basic-paragraphs-page--teaser--container {
+      width: 100%;
+    }
+  }
+  // flex: 1 1 auto;
+  // width: 100%;
+  // overflow: hidden;
+  // margin: 0;
+  // @include respond-at($bp-med) {
+  //   width: 44%;
+  //   // margin: 0 2.5%;
+  // }
+  // @include respond-at($bp-large) {
+  //   width: 38.5%;
+  //   // margin: 0 5%;
+  // }
+}
+
+
+.paragraph--type--layout-two-column-column-left {
+  padding-right: 0;
+  @include respond-at($bp-med) {
+    & > .paragraph--type--content-body-text {
+      padding-right: 3%;
+      // margin: 0 2.5%;
+    }
+  }
+  @include respond-at($bp-large) {
+    & > .paragraph--type--content-body-text {
+      padding-right: 4%;
+      // margin: 0 5%;
+    }
+  }
+}
+
+.paragraph--type--layout-two-column-column-right {
+  padding-left: 0;
+  @include respond-at($bp-med) {
+    & > .paragraph--type--content-body-text {
+      padding-left: 3%;
+      // margin: 0 2.5%;
+    }
+  }
+  @include respond-at($bp-large) {
+    & > .paragraph--type--content-body-text {
+      padding-left: 4%;
+      // margin: 0 5%;
+    }
+  }
+}
+// This section is for the blog post listing view. It's set so that it's using the same tags as the paragraph but on alternating rows the columns swap sides so the values for padding need to change appropriately
+.views-blog-post-row-odd > .paragraph--type--layout-two-column {
+  @include respond-at($bp-med) {
+    flex-direction: row-reverse;
+  }
+}
+
+.views-blog-post-row-odd > article > .paragraph--type--layout-two-column-column-left {
+  padding-left: 0;
+  padding-right: 0;
+  @include respond-at($bp-med) {
+    & > .paragraph--type--content-body-text {
+      padding-left: 3%;
+      padding-right: 0;
+    }
+  }
+  @include respond-at($bp-large) {
+    & > .paragraph--type--content-body-text {
+      padding-left: 4%;
+      padding-right: 0;
+    }
+  }
+}
+
+.views-blog-post-row-odd > article > .paragraph--type--layout-two-column-column-right {
+  padding-right: 0;
+  padding-left: 0;
+  @include respond-at($bp-med) {
+    & > .paragraph--type--content-body-text {
+      padding-right: 3%;
+      padding-left: 0;
+    }
+  }
+  @include respond-at($bp-large) {
+    & > .paragraph--type--content-body-text {
+      padding-right: 4%;
+      padding-left: 0;
+    }
+  }
+}
+// End of blog post view stuff

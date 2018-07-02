@@ -1,0 +1,291 @@
+<?php
+/**
+* implements hook_theme_suggesions_alter().
+*/
+
+function lahoda_theme_suggestions_alter( &$suggestions, array $variables, $hook) {
+
+  if ($hook=="views_view_unformatted__block") {
+      // dpm($variables['view']->getDisplay());
+      // $display = $variables['view']->getDisplay()->getPluginId();
+    $suggestions[] = $hook . '__' . $variables['view']->id();
+    // $suggestions[] = $hook . '__' . $display;
+    // $suggestions[] = $hook . '__' . $display . '__' . $variables['view']->id();
+    // dpm($suggestions);
+    // dpm($variables);
+  }
+
+  if ($hook=="views_view_unformatted") {
+      // dpm($variables['view']->getDisplay());
+      $display = $variables['view']->getDisplay()->getPluginId();
+    $suggestions[] = $hook . '__' . $variables['view']->id();
+    $suggestions[] = $hook . '__' . $display;
+    $suggestions[] = $hook . '__' . $display . '__' . $variables['view']->id();
+    // dpm($suggestions);
+    // dpm($variables);
+  }
+
+  if ($hook=="form") {
+      // dpm($variables['element']['#form_id']);
+      $display = $variables['element']['#form_id'];
+    // $suggestions[] = $hook . '__' . $variables['view']->id();
+      $suggestions[] = $hook . '__' . $display;
+    // $suggestions[] = $hook . '__' . $display . '__' . $variables['view']->id();
+    // dpm($suggestions);
+    // dpm($variables);
+  }
+
+  if ($hook=="block") {
+      // dpm($variables['element']['#form_id']);
+     // if (isset($variables['elements']['#contextual_links']['#block_content'])) {
+       // $display = $variables['elements']['#contextual_links']['block_content']['metadata']['ds_bundle'];
+      // $suggestions[] = $hook . '__' . $variables['view']->id();
+    //  $suggestions[] = $hook . '__' . $display;
+     // }
+
+    // $suggestions[] = $hook . '__' . $display . '__' . $variables['view']->id();
+   // dpm($suggestions);
+  //   dpm($variables['elements']['#contextual_links']['block_content']['metadata']['ds_bundle']);
+     // dpm($variables['elements']['#contextual_links']);
+  }
+
+  if ($hook=="item_list" && $variables['attributes']['class']=='pager-for-content-type') {
+    // dpm($variables['attributes']['class']);
+    $suggestions[] = $hook . '__' . 'pager-for-content-type';
+  }
+
+
+  // if ($hook=="form_element") {
+  //     // dpm($variables);
+  //    $display = $variables['element']['#title'];
+  //   // $suggestions[] = $hook . '__' . $variables['view']->id();
+  //    $suggestions[] = $hook . '__' . $display;
+  //   // $suggestions[] = $hook . '__' . $display . '__' . $variables['view']->id();
+  //   // dpm($suggestions);
+  //   // dpm($variables);
+  // }
+
+  // if ($hook=="container") {
+      // dpm($variables);
+    //   $display = $variables['view']->getDisplay()->getPluginId();
+    // $suggestions[] = $hook . '__' . $variables['view']->id();
+    // $suggestions[] = $hook . '__' . $display;
+    // dpm($suggestions);
+    // dpm($variables);
+  // }
+  // if ($hook=="breadcrumb") {
+  //   // $suggestions[] = $hook . '__' . $variables['elements']['#view_mode'];
+  //   // dpm($suggestions);
+  //   // dpm($variables);
+  // }
+}
+
+function lahoda_preprocess_page(&$variables){
+
+// dpm("some string");
+
+}
+
+function lahoda_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  // Block suggestions for custom block bundles.
+  //thanks to https://www.drupal.org/forum/support/theme-development/2016-05-12/theming-custom-block-types
+  if (isset($variables['elements']['content']['#block_content'])) {
+    array_splice($suggestions, 1, 0, 'block__bundle__' . $variables['elements']['content']['#block_content']->bundle());
+  }
+}
+
+function lahoda_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+
+  $display = $variables['view']->getDisplay()->getPluginId();
+  $view = $variables['view']->id();
+  $suggestions[] = "views_view__$view";
+  $suggestions[] = "views_view__$display";
+  $suggestions[] = "views_view__$view" . "__$display";
+
+}
+
+function lahoda_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if (function_exists("honeypot_add_form_protection")){honeypot_add_form_protection($form, $form_state, array('honeypot'));}
+
+  // dpm($form);
+
+}
+
+function lahoda_form_mailchimp_signup_subscribe_page_signup_form_alter(&$form) {
+//this is taking the submit button in the mailchimp signup form and altering the functionality to add an additional function to it
+//the function will create a new user based on the information provided in the signup information
+  // $form['#submit'][] = 'lahoda_mailchimp_signup_subscribe_page_signup_form_create_new_user';
+  // dpm($form);
+  $form['#submit'] = array(
+    'lahoda_form_mailchimp_signup_subscribe_page_signup_form_mergevar_populate',
+    $form['#submit'][0],
+  );
+}
+
+function lahoda_form_mailchimp_signup_subscribe_block_signup_form_alter(&$form) {
+//this is taking the submit button in the mailchimp signup form and altering the functionality to add an additional function to it
+//the function will create a new user based on the information provided in the signup information
+  // $form['#submit'][] = 'lahoda_mailchimp_signup_subscribe_page_signup_form_create_new_user';
+  // dpm($form);
+  $form['#submit'] = array(
+    'lahoda_form_mailchimp_signup_subscribe_page_signup_form_mergevar_populate',
+    $form['#submit'][0],
+  );
+}
+
+function lahoda_form_mailchimp_signup_subscribe_page_signup_form_mergevar_populate(&$form, \Drupal\Core\Form\FormStateInterface &$form_state) {
+  // this copies the contents of one field to another field in a form
+  // dpm($form_state);
+  // dpm('success');
+  // $complete_form = &$form_state->getCompleteForm();
+  // dpm($complete_form['mergevars']['MMERGE4']['#value']);
+  // $newmergevalue = $complete_form['mergevars']['MMERGE4']['#value'];
+// $complete_form['mergevars']['USER_8']['#value'] = $complete_form['mergevars']['MMERGE4']['#value'];
+ // $form_state->setValue('mergevars[MMERGE3]',$complete_form['mergevars']['MMERGE4']['#value']);
+ // dpm($form_state->getValue('mergevars'));
+ $mergevardata = $form_state->getValue('mergevars');
+ $mergevardata['USER_8'] = $mergevardata['MMERGE4'];
+ $form_state->setValue('mergevars', $mergevardata);
+// according to the form API mergevars is one field so to set the data in it that we want we just reference that one field with the setValue and then inside of it point to the mmerge3 and mmerge4 that we want
+}
+
+
+
+function lahoda_form_mailchimp_signup_subscribe_page_signuptest_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  // dpm($form);
+  // dpm($form_state);
+  // array_unshift($form['#submit'],'lahoda_form_mailchimp_signup_subscribe_page_signuptest_form_mergevar_populate');
+  // $form['actions']['submit']['#submit'] = array('lahoda_form_mailchimp_signup_subscribe_page_signuptest_form_mergevar_populate');
+  $form['#submit'] = array(
+    'lahoda_form_mailchimp_signup_subscribe_page_signuptest_form_mergevar_populate',
+    $form['#submit'][0],
+  );
+  // dpm($form);
+
+}
+
+function lahoda_form_mailchimp_signup_subscribe_page_signuptest_form_mergevar_populate(&$form, \Drupal\Core\Form\FormStateInterface &$form_state) {
+  // this copies the contents of one field to another field in a form
+  // dpm($form_state);
+  // dpm('success');
+  // $complete_form = &$form_state->getCompleteForm();
+  // dpm($complete_form['mergevars']['MMERGE4']['#value']);
+  // $newmergevalue = $complete_form['mergevars']['MMERGE4']['#value'];
+// $complete_form['mergevars']['MMERGE3']['#value'] = $complete_form['mergevars']['MMERGE4']['#value'];
+ // $form_state->setValue('mergevars[MMERGE3]',$complete_form['mergevars']['MMERGE4']['#value']);
+ // dpm($form_state->getValue('mergevars'));
+ $mergevardata = $form_state->getValue('mergevars');
+ $mergevardata['MMERGE3'] = $mergevardata['MMERGE4'];
+ $form_state->setValue('mergevars', $mergevardata);
+// according to the form API mergevars is one field so to set the data in it that we want we just reference that one field with the setValue and then inside of it point to the mmerge3 and mmerge4 that we want
+}
+
+function lahoda_mailchimp_signup_subscribe_page_signup_form_create_new_user(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+  // dpm("also success for real");
+
+  // dpm($form_state);
+  // dpm($form_state->"complete_form"['mergevars']['#email']);
+  $complete_form = &$form_state->getCompleteForm();
+  // dpm($complete_form['mergevars']['EMAIL']['#value']);
+  $mergeemail = $complete_form['mergevars']['EMAIL']['#value'];
+  // $mergefname = $complete_form['mergevars']['FNAME']['#value'];
+  // $mergelname = $complete_form['mergevars']['LNAME']['#value'];
+  //dpm(form_state); - see how the values are coming through - here's what was entered, here's the actual final information because it can be altered with JS and metadata. "form" is the template, "form_state" is the actual data, this would grow if you have a multi-page form.
+  //auto generate the user with the values from the form_state
+  //make sure to send a confirmation email to people after the sign up - use a generic password then either a new user email or forgot password email to have them change the email
+  //alter the template to add context around the form so they know they're going to get 2 emails and what is going to happen and stuff and all
+
+  //start creating a user programmatically
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $user = \Drupal\user\Entity\User::create();
+
+  // Mandatory.
+  $user->setPassword('password');
+  $user->enforceIsNew();
+  $user->setEmail($mergeemail);
+  $user->setUsername($mergeemail);
+  //
+  // // Optional.
+  $user->set('init', $mergeemail);
+  // $user->set('langcode', $language);
+  // $user->set('preferred_langcode', $language);
+  // $user->set('preferred_admin_langcode', $language);
+  // $user->set('setting_name', 'setting_value');
+  // $user->set('field_f',$mergefname);
+  // $user->set('field_last_name',$mergelname);
+  $user->addRole('prayer_partner');
+  $user->activate(1);
+  //
+  // Save user account.
+  $result = $user->save();
+
+}
+
+function lahoda_form_user_register_form_alter(&$form) {
+
+// dpm("also success");
+
+
+}
+
+
+function lahoda_preprocess_node(&$variables) {
+  // dpm($variables['elements']['#view_mode']);
+  if ($variables['elements']['#view_mode']=='full') {
+  // dpm($variables['elements']['#view_mode']);
+    // here $variables is an object which is like an array but more complex and so the brackets [] are diving into the array
+    // the first is going into the elements value then the second is looking for the #node value inside of elements.
+    // then inside the #node array it looks for the bundle value and checks to see if it's equal to the string article
+    $block_manager = \Drupal::service('plugin.manager.block');
+    // You can hard code configuration or you load from settings.
+    $config = [];
+    $plugin_block = $block_manager->createInstance('system_breadcrumb_block', $config);
+    // dpm($plugin_block);
+    $render = $plugin_block->build();
+    // In some cases, you need to add the cache tags/context depending on
+    // the block implemention. As it's possible to add the cache tags and
+    // contexts in the render method and in ::getCacheTags and
+    // ::getCacheContexts methods.
+    $variables['content']['breadcrumb']=$render;
+  }
+}
+
+function lahoda_preprocess_form_element(&$variables) {
+  // dpm($variables);
+  $variables['element']['#attributes']['class'][] = 'my-class';
+}
+
+
+// function user_pass_reset_url($account, $options = []) {
+//   $timestamp = REQUEST_TIME;
+//   $langcode = isset($options['langcode']) ? $options['langcode'] : $account->getPreferredLangcode();
+//   return \Drupal::url('user.reset',
+//   [
+//     'uid' => $account->id(),
+//     'timestamp' => $timestamp,
+//     'hash' => user_pass_rehash($account, $timestamp),
+//   ],
+//   [
+//     'absolute' => TRUE,
+//     'language' => \Drupal::languageManager()->getLanguage($langcode)
+//   ]
+//   );
+// }
+
+//
+// function mymodule_form_node_form_alter(&$form, FormStateInterface $form_state) {
+//
+//     foreach (array_keys($form['actions']) as $action) {
+//       if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+//         $form['actions'][$action]['#submit'][] = 'mymodule_node_form_submit';
+//       }
+//     }
+// }
+//
+// function mymodule_node_form_submit($form, FormStateInterface $form_state) {
+//    $node = $form_state->getFormObject()->getEntity();
+//   // mymodule_do_something($node);
+//  \Drupal::logger(' mymodule')->notice('mymodule submit ') ;
+//
+// }

@@ -1,0 +1,50 @@
+//colors
+
+$primary-grey: #eaeaea;
+$light-grey: #f7f7f7;
+$dark-grey: #838383;
+$extra-dark-grey: #595959;
+$accent-1: #ea712c;
+$accent-1-light: lighten($accent-1, 20%);
+$accent-1-extralight: lighten($accent-1, 35%);
+$accent-1-dark: darken($accent-1, 10%);
+$accent-1-extradark: darken($accent-1, 20%);
+$light-text: #fff;
+$dark-text: #4e4e4e;
+
+//styles for color schemes
+.primary-bkg {
+  color: $dark-text;
+  background-color: $primary-grey;
+}
+
+.light-bkg {
+  color: $dark-text;
+  background-color: $light-grey;
+}
+
+
+.dark-bkg {
+  color: $light-text;
+  background-color: $dark-grey;
+}
+
+.extra-dark-bkg {
+  color: $light-text;
+  background-color: $extra-dark-grey;
+}
+
+.accent-1-bkg {
+  color: $light-text;
+  background-color: $accent-1;
+}
+
+.white-bkg {
+  color: $dark-text;
+  background-color: white;
+}
+
+.accent-1-dark-bkg {
+  color: $light-text;
+  background-color: $accent-1-dark;
+}

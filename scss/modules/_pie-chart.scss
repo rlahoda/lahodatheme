@@ -1,0 +1,136 @@
+.paragraph--type--content-pie-chart {
+  width: 100%;
+  height: 100%;
+}
+
+.paragraph__pie-chart__chart {
+  width: 100%;
+  // height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.paragraph__pie-chart__chart-container {
+width: 250px;
+// max-width: 350px;
+
+  @include respond-at($bp-large) {
+    width: 300px;
+  }
+
+  padding: 5px;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  & > p {
+    width: 100%;
+  }
+}
+
+.paragraph__pie-chart__chart-container-chart {
+  @include respond-at($bp-large) {
+    width: 300px;
+    max-width: 400px;
+  }
+}
+
+.paragraph__pie-chart__chart-container-body_text {
+  flex-direction: column;
+}
+
+.paragraph__pie-chart__chart-table {
+  flex: 1 1 auto;
+}
+
+svg.paragraph__pie-chart__chart-container-chart {
+  // width: 100%; height: 100%;
+  transform: rotate(-90deg);
+  background: $dark-grey;
+  border-radius: 50%;
+}
+
+.paragraph__pie-chart__chart-container-chart-width-full {
+  width: 100%;
+}
+
+.paragraph__pie-chart__chart-container-chart-width-75 {
+  width: 75%;
+}
+
+.paragraph__pie-chart__chart-container-chart-width-60 {
+  width: 60%;
+}
+
+.paragraph__pie-chart__chart-container-chart-width-50 {
+  width: 50%;
+}
+
+.paragraph__pie-chart__chart-container-chart-width-40 {
+  width: 40%;
+}
+
+svg.paragraph__pie-chart__chart-table-marker {
+  width: 100%; height: 100%;
+}
+
+.paragraph__pie-chart__chart-table-marker-container {
+  max-width: 50px;
+  max-height: 50px;
+  min-width: 25px;
+  min-height: 25px;
+}
+
+.paragraph__pie-chart__chart-table-marker-stroke {
+  stroke-width: 4px;
+  stroke: $extra-dark-grey;
+}
+
+circle {
+  fill: none;
+/*   stroke: #655; */
+  stroke-width: 32;
+   /* for 38% */
+}
+
+.pie-chart_slice_color_accent-1 {
+    stroke: $accent-1;
+}
+
+.pie-chart_slice_color_accent-1-light {
+    stroke: $accent-1-light;
+}
+
+.pie-chart_slice_color_accent-1-extralight {
+    stroke: $accent-1-extralight;
+}
+
+.pie-chart_slice_color_accent-1-dark {
+    stroke: $accent-1-dark;
+}
+
+.pie-chart_marker_color_accent-1-extradark {
+    fill: $accent-1-extradark;
+}
+
+.pie-chart_marker_color_accent-1 {
+    fill: $accent-1;
+}
+
+.pie-chart_marker_color_accent-1-light {
+    fill: $accent-1-light;
+}
+
+.pie-chart_marker_color_accent-1-extralight {
+    fill: $accent-1-extralight;
+}
+
+.pie-chart_marker_color_accent-1-dark {
+    fill: $accent-1-dark;
+}
+
+.pie-chart_marker_color_accent-1-extradark {
+    fill: $accent-1-extradark;
+}

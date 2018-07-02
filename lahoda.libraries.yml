@@ -1,0 +1,6 @@
+global-styling:
+  css:
+    base:
+      css/styles.css: {}
+  js:
+    js/scripts.js: {}

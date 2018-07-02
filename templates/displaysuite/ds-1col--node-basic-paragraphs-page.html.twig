@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Display Suite 1 column template.
+ *
+ * Available variables:
+ * - ds_content_wrapper: wrapper around content
+ * - attributes: content region attributes
+ * - ds_content: content region
+ */
+#}
+<{{ ds_content_wrapper }}{{ attributes.addClass('ds-1col', 'clearfix') }}>
+
+  {{ title_suffix.contextual_links }}
+
+  {{ ds_content.field_hero_paragraph }}
+  <div class="full-width dark-bkg">
+    <h1 class="main-title__text">{{ ds_content.node_title }} | {{ ds_content.field_subhead }}</h1></div>
+
+  {{ ds_content|without('field_hero_paragraph', 'node_title', 'field_subhead') }}
+
+</{{ ds_content_wrapper }}>

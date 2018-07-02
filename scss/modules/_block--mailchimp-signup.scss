@@ -1,0 +1,132 @@
+.block--mailing-list--label {
+  // display: inherit;
+  // width: auto;
+  // height: auto;
+  margin: 0;
+  padding: 10px;
+  // text-align: left;
+}
+
+.block--mailing-list--label--hidden {
+  display: none;
+  // @include respond-at($bp-small) {
+  //   display: none;
+  //   width: 0;
+  //   height: 0;
+  //   overflow: hidden;
+  // }
+}
+
+.block--mailing-list--label--visible {
+  display: inherit;
+  // @include respond-at($bp-small) {
+  //   display: none;
+  //   width: 0;
+  //   height: 0;
+  //   overflow: hidden;
+  // }
+}
+
+.block--mailing-list--label {
+  // @include respond-at($bp-small) {
+  //   // display: none;
+  //   width: 0;
+  //   height: 0;
+  //   overflow: hidden;
+  // }
+}
+
+.block--mailing-list--content {
+  width: 100%;
+  display: inherit;
+  max-height: 0;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+
+input[type=checkbox]:checked ~ div {
+  max-height: 200vh;
+
+}
+
+input[type=checkbox]:checked ~ .block--mailing-list--label--hidden {
+  // transform: scaleY(-1);
+  display: inherit;
+}
+
+input[type=checkbox]:checked ~ .block--mailing-list--label--visible {
+  // transform: scaleY(-1);
+  display: none;
+}
+
+//not in use, this style has been inlined into the template
+.toggle-2 {
+  display: none;
+  position: absolute;
+   top: -9999px;
+   left: -9999px;
+}
+
+// label .mobile-menu-label {
+//   cursor: pointer;
+// }
+
+#mailchimp-signup-subscribe-block-signup-form > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: baseline;
+  align-content: flex-start;
+}
+
+#mailchimp-signup-subscribe-block-signup-form > div > div {
+    // display: inline-block;
+    flex: 0 1 auto;
+}
+
+#mailchimp-signup-subscribe-block-signup-form--2 > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: baseline;
+  align-content: flex-start;
+}
+
+#mailchimp-signup-subscribe-block-signup-form--2 > div > div {
+    // display: inline-block;
+    flex: 0 1 auto;
+}
+
+// #mailchimp-signup-subscribe-block-signup-form > div {
+//   & .form-item-mergevars-fname {
+//     order: 1;
+//   }
+//   & .form-item-mergevars-lname {
+//     order: 2;
+//   }
+//   & .form-item-mergevars-email {
+//     order: 3;
+//   }
+//   & .form-item-mergevars-mmerge4 {
+//     order: 4;
+//   }
+//   & .form-item-mergevars-mmerge3-addr1 {
+//     order: 5;
+//   }
+//   & .form-item-mergevars-mmerge3-addr2 {
+//     order: 6;
+//   }
+//   & .form-item-mergevars-mmerge3-city {
+//     order: 7;
+//   }
+//   & .form-item-mergevars-mmerge3-state {
+//     order: 8;
+//   }
+//   & .form-item-mergevars-mmerge3-zip {
+//     order: 9;
+//   }
+//   & .form-item-mergevars-mmerge3-country {
+//     order: 10;
+//   }
+//
+// }

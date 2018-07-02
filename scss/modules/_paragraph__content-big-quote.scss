@@ -1,0 +1,42 @@
+.paragraph--type--content-big-quote {
+  padding: 3%;
+}
+
+.paragraph--content-big-quote__quote {
+  font-family: $block-quote-font;
+ font-weight: $block-quote-regular;
+ text-align: center;
+ font-size: 3.5em;
+ line-height: 1;
+ @include respond-at($bp-med) {
+   font-size: 3.75em;
+ }
+
+ @include respond-at($bp-large) {
+   font-size: 4em;
+ }
+}
+
+.paragraph--content-big-quote__attribution {
+  font-family: $block-quote-font;
+  font-weight: $block-quote-bold;
+  text-align: right;
+  font-size: 1.5em;
+  line-height: 1;
+  margin: 0;
+  @include respond-at($bp-med) {
+    font-size: 2em;
+  }
+
+  @include respond-at($bp-large) {
+    font-size: 2em;
+  }
+  // font-style: italic;
+}
+
+hr.quote {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+ 

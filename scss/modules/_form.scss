@@ -1,0 +1,31 @@
+ .form-padding {
+   padding: 25px 0;
+ }
+
+.form-item {
+  padding: 5px;
+}
+
+.form-item-mergevars-mmerge3-zip {
+  display: inline;
+}
+
+.form-item-mergevars-mmerge3-state {
+  display: inline;
+}
+
+.form-item-mergevars-mmerge3-country {
+  display: inline;
+}
+
+#edit-url {
+  display: none !important;
+}
+
+#mailchimp-signup-subscribe-page-signup-form > div > .form-item-mergevars-user-8 {
+  display: none !important;
+}
+
+[id^=mailchimp-signup-subscribe-block] > div > .form-item-mergevars-user-8 {
+  display: none !important;
+}

@@ -1,0 +1,473 @@
+.nav-text {
+  font-size: 1.5em;
+  font-weight: $light;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid $light-text;
+  text-align: center;
+
+  & a {
+    text-decoration: none;
+    width: 100%;
+  }
+
+  &:hover {
+    color: $dark-text;
+  }
+
+  @include respond-at($bp-xsmall) {
+    font-size: 1em;
+  }
+
+  @include respond-at($bp-small) {
+    font-size: 1em;
+    border-bottom: 0px solid $light-text;
+  }
+  @include respond-at($bp-med) {
+    font-size: 1.25em;
+  }
+}
+
+.nav-region {
+  width: 100%;
+  display: inherit;
+  max-height: 0;
+  transition: all 0.5s;
+  overflow: hidden;
+
+
+  @include respond-at($bp-small) {
+    align-items: stretch;
+    display: flex;
+    justify-content: space-between;
+    max-height: none;
+    overflow: auto;
+  }
+
+}
+
+
+
+.nav-region--closed {
+
+}
+
+.primary-nav__wrapper {
+  width: 100%;
+  height: auto;
+
+  @include respond-at($bp-small) {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+  }
+}
+
+.primary-nav {
+  width: 100%;
+
+  @include respond-at($bp-xsmall) {
+
+  }
+  @include respond-at($bp-small) {
+
+  }
+  @include respond-at($bp-med) {
+
+  }
+}
+
+.primary-nav__list {
+  // width: 100%;
+  // display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  white-space: nowrap;
+
+  @include respond-at($bp-xsmall) {
+
+  }
+  @include respond-at($bp-small) {
+    display: inline;
+    // flex-direction: row;
+  }
+  @include respond-at($bp-med) {
+
+  }
+}
+
+.primary-nav__link {
+  width: 100%; 
+  padding: 5px 15px;
+  // margin: 0 0 5px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid $light-text;
+  border-right: 0px solid $light-text;
+  text-align: center;
+
+    &:hover {
+      background-color: $primary-grey;
+      color: $dark-text;
+    }
+
+  @include respond-at($bp-xsmall) {
+
+  }
+  @include respond-at($bp-small) {
+  border-bottom: 0px solid $light-text;
+  border-right: 1px solid $light-text;
+  padding: 5px;
+  flex: 1 1 auto;
+  width: 15%;
+  display: inline;
+  }
+  @include respond-at($bp-med) {
+
+  }
+}
+
+.primary-nav__link--last {
+  // border-bottom: 0;
+
+  @include respond-at($bp-xsmall) {
+
+  }
+  @include respond-at($bp-small) {
+    border-right: 0 solid $light-text;
+  }
+  @include respond-at($bp-med) {
+
+  }
+}
+
+.buttons-nav__wrapper {
+  width: 100%;
+  height: auto;
+  display: inherit;
+
+  @include respond-at($bp-small) {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+
+    // flex: 1 1 auto;
+  }
+}
+
+.buttons-nav {
+  width: 100%;
+  display: inherit;
+
+  @include respond-at($bp-xsmall) {
+
+  }
+  @include respond-at($bp-small) {
+    display: flex;
+    // align-items: center;
+  }
+  @include respond-at($bp-med) {
+
+  }
+}
+
+.buttons-nav__list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+
+  @include respond-at($bp-xsmall) {
+
+  }
+  @include respond-at($bp-small) {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  @include respond-at($bp-med) {
+
+  }
+}
+
+.buttons-nav__link {
+  // width: 100%;
+  height: auto;
+  // padding: 15px;
+  margin: 0;
+  // display: flex;
+  // justify-content: center;
+  // border-bottom: 1px solid $light-text;
+  // text-align: center;
+
+  &:hover {
+    background-color: $accent-1-light;
+    // color: $dark-text;
+  }
+
+  @include respond-at($bp-xsmall) {
+
+  }
+  @include respond-at($bp-small) {
+    border-bottom: 0px solid $light-text;
+    margin: 0 5px;
+    align-items: center;
+    // padding: 5px;
+    // // display: inherit;
+    // height: 100%;
+  }
+  @include respond-at($bp-med) {
+
+  }
+}
+
+.user-nav__wrapper {
+  width: 100%;
+  // height: auto;
+
+  @include respond-at($bp-small) {
+    width: 25%;
+    // height: 100%;
+  }
+}
+
+.user-nav {
+  width: 100%;
+
+  @include respond-at($bp-xsmall) {
+
+  }
+  @include respond-at($bp-small) {
+
+  }
+  @include respond-at($bp-med) {
+
+  }
+}
+
+.user-nav__list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include respond-at($bp-xsmall) {
+
+  }
+  @include respond-at($bp-small) {
+    // flex-direction: row;
+  }
+  @include respond-at($bp-med) {
+
+  }
+}
+
+.user-nav__link {
+  // width: 100%;
+  // padding: 15px;
+  // margin: 0 0 5px;
+  // display: flex;
+  // justify-content: center;
+  // border-bottom: 1px solid $light-text;
+  border-right: 0px solid $light-text;
+
+    &:hover {
+      background-color: $primary-grey;
+      // color: $dark-text;
+    }
+
+  @include respond-at($bp-xsmall) {
+
+  }
+  @include respond-at($bp-small) {
+  // border-bottom: 0px solid $light-text;
+  padding: 0;
+  font-size: 0.9em;
+  // border-right: 1px solid $light-text;
+  }
+  @include respond-at($bp-med) {
+
+  }
+}
+
+
+
+.mobile-menu-label {
+  display: inherit;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 10px;
+  text-align: left;
+}
+
+.mobile-menu-label--hidden {
+  display: none;
+  @include respond-at($bp-small) {
+    display: none;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+.mobile-menu-label--visible {
+  display: inherit;
+  @include respond-at($bp-small) {
+    display: none;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+.mobile-menu-label {
+  @include respond-at($bp-small) {
+    display: none;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+input[type=checkbox]:checked ~ div {
+  max-height: 100vh;
+
+}
+
+input[type=checkbox]:checked ~ .mobile-menu-label--hidden {
+  // transform: scaleY(-1);
+  display: inherit;
+}
+
+input[type=checkbox]:checked ~ .mobile-menu-label--visible {
+  // transform: scaleY(-1);
+  display: none;
+}
+
+.toggle-1 {
+  display: none;
+  position: absolute;
+   top: -9999px;
+   left: -9999px;
+}
+
+label .mobile-menu-label {
+  cursor: pointer;
+}
+
+
+//
+// .nav-region {
+//   width: 100%;
+//   display: inherit;
+//   align-items: center;
+//   @include respond-at($bp-small) {
+//     display: flex;
+//   }
+// }
+//
+// .primary-nav__list {
+//   display: block;
+//   @include respond-at($bp-small) {
+//     display: flex;
+//   }
+// }
+//
+// .primary-nav__wapper {
+//   width: 100%;
+// }
+//
+// .primary-nav {
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-start;
+//   padding: 0 10%;
+// }
+//
+// .primary-nav__link {
+//   padding: 10px;
+//   margin: 0;
+//   display: flex;
+//   justify-content: center;
+//   border-right: 0;
+//
+//   @include respond-at($bp-small) {
+//     padding: 0 10px;
+//     margin: 0;
+//     display: flex;
+//     justify-content: center;
+//     border-right: solid 1px $light-text;
+//   }
+//
+//   @include respond-at($bp-med) {
+//
+//   }
+//
+//   &:hover {
+//     background-color: $primary-grey;
+//   }
+// }
+//
+// .primary-nav__link--last {
+//   border-right: 0;
+// }
+//
+// .nav2-wrapper {
+//   width: 75%;
+//   flex: 1 1 auto;
+// }
+//
+// .connection-nav {
+//   flex: 1 1 auto;
+//   width: 100%;
+//   display: flex;
+//   justify-content: center;
+//   flex-direction: column;
+//   @include respond-at($bp-small) {
+//     justify-content: flex-end;
+//     flex-direction: row;
+//   }
+// }
+//
+// .connection-nav__button {
+//   border-width: 0;
+//   padding: 10px;
+//   width: 100%;
+//   display: block;
+//   margin: 0;
+//
+//   @include respond-at($bp-small) {
+//     border-width: 0;
+//     padding: 10px 20px;
+//     width: auto;
+//     display: inline-block;
+//     margin: 0 10px;
+//   }
+//
+//   &:hover {
+//     background-color: $accent-1-dark;
+//   }
+// }
+//
+// .user-nav {
+//   flex: 1 1 auto;
+//   flex-direction: column;
+//   // width: 25%;
+//   display: flex;
+//   justify-content: center;
+//   margin: 0 10px;
+// }
+//
+// .user-nav__link {
+//   &:hover {
+//     background-color: $primary-grey;
+//   }
+// }

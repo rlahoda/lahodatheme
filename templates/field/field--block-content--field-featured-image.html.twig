@@ -1,0 +1,64 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see template_preprocess_field()
+ */
+#}
+
+{# {{dpm(element['#object'].field_featured_image.entity.fileuri)}} #}
+
+{% if  element['#object'].field_image_alignment.target_id == 16  %}
+  <div{{ attributes.addClass(classes, 'paragraph--type--content-image-hero', 'paragraph-image--align--top-left') }} style="background-image: url({{ file_url(element['#object'].field_featured_image.entity.fileuri)}})">
+{% elseif  element['#object'].field_image_alignment.target_id == 7 %}
+  <div{{ attributes.addClass(classes, 'paragraph--type--content-image-hero', 'paragraph-image--align--top') }} style="background-image: url({{ file_url(element['#object'].field_featured_image.entity.fileuri)}})">
+{% elseif  element['#object'].field_image_alignment.target_id == 17 %}
+  <div{{ attributes.addClass(classes, 'paragraph--type--content-image-hero', 'paragraph-image--align--top-right') }} style="background-image: url({{ file_url(element['#object'].field_featured_image.entity.fileuri)}})">
+{% elseif  element['#object'].field_image_alignment.target_id == 18 %}
+  <div{{ attributes.addClass(classes, 'paragraph--type--content-image-hero', 'paragraph-image--align--mid-left') }} style="background-image: url({{ file_url(element['#object'].field_featured_image.entity.fileuri)}})">
+{% elseif  element['#object'].field_image_alignment.target_id == 19 %}
+  <div{{ attributes.addClass(classes, 'paragraph--type--content-image-hero', 'paragraph-image--align--mid-right') }} style="background-image: url({{ file_url(element['#object'].field_featured_image.entity.fileuri)}})">
+{% elseif element['#object'].field_image_alignment.target_id == 20 %}
+  <div{{ attributes.addClass(classes, 'paragraph--type--content-image-hero', 'paragraph-image--align--bottom-left') }} style="background-image: url({{ file_url(element['#object'].field_featured_image.entity.fileuri)}})">
+{% elseif element['#object'].field_image_alignment.target_id == 9 %}
+  <div{{ attributes.addClass(classes, 'paragraph--type--content-image-hero', 'paragraph-image--align--bottom') }} style="background-image: url({{ file_url(element['#object'].field_featured_image.entity.fileuri)}})">
+{% elseif  element['#object'].field_image_alignment.target_id == 21 %}
+  <div{{ attributes.addClass(classes, 'paragraph--type--content-image-hero', 'paragraph-image--align--bottom-right') }} style="background-image: url({{ file_url(element['#object'].field_featured_image.entity.fileuri)}})">
+  {% else %}
+    <div{{ attributes.addClass(classes, 'paragraph--type--content-image-hero', 'paragraph-image--align--mid') }} style="background-image: url({{ file_url(element['#object'].field_featured_image.entity.fileuri)}})">
+  {% endif %}
+  {% block content %}
+    {{ content|without('field_hero_image') }}
+  {% endblock %}
+</div>

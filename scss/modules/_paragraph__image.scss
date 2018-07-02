@@ -1,0 +1,123 @@
+.paragraph--type--content-image-background {
+  width: 100%;
+  // height: 100%; //removed to add safari compatibility for images to stretch to fill flex height
+  min-height: 250px;
+  display: flex;
+  flex: 1 1 auto; //added because when flex direction on paragraph--type--layout-two-column-column was set to column, this wouldn't fill the space vertically
+  border: 1px solid $extra-dark-grey;
+  // height: 550px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background-position: center;
+  @include respond-at($bp-small) {
+    // min-height: 350px;
+  }
+}
+
+.paragraph--type--content-image-background-hiding {
+  display: none;
+  @include respond-at($bp-med) {
+    display: flex;
+  }
+}
+
+.paragraph--type--content-image-hero {
+  width: 100%;
+  // overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background-attachment: fixed;
+
+}
+
+.paragraph--image-hero--large {
+    height: 15vh;
+  min-height: 250px;
+
+  @include respond-at($bp-small) {
+    height: 55vh;
+    min-height: 450px;
+  }
+  @include respond-at($bp-med) {
+    height: 65vh;
+  }
+}
+
+.paragraph--image-hero--medium {
+    height: 10vh;
+  min-height: 175px;
+
+  @include respond-at($bp-small) {
+    height: 25vh;
+    min-height: 250px;
+  }
+  @include respond-at($bp-med) {
+    height: 45vh;
+  }
+}
+
+.paragraph--image-hero--small {
+    height: 5vh;
+  min-height: 100px;
+
+  @include respond-at($bp-small) {
+    height: 15vh;
+    min-height: 150px;
+  }
+  @include respond-at($bp-med) {
+    height: 25vh;
+  }
+}
+
+.paragraph-image--align--top-left {
+  background-position: top left;
+}
+
+.paragraph-image--align--top {
+  background-position: top;
+}
+
+.paragraph-image--align--top-right {
+  background-position: top right;
+}
+
+.paragraph-image--align--mid-left {
+  background-position: left;
+}
+
+.paragraph-image--align--mid {
+  background-position: center;
+}
+
+.paragraph-image--align--mid-right {
+  background-position: right;
+}
+
+.paragraph-image--align--bottom-left {
+  background-position: bottom left;
+}
+
+.paragraph-image--align--bottom {
+  background-position: bottom;
+}
+
+.paragraph-image--align--bottom-right {
+  background-position: bottom right;
+}
+
+.paragraph__image__image--horizontal {
+  height: auto;
+  width: 100%;
+  // background-color: blue;
+}
+
+.paragraph__image__image--vertical {
+  height: 100%;
+  width: auto;
+  // background-color: blue;
+}

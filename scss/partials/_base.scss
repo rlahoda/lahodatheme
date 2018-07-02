@@ -1,0 +1,79 @@
+// This base sets some of the top level variables but nothing that actually outputs css
+
+// Font weights
+$light: 200;
+$regular: 400;
+$bold: 700;
+
+// Base Font
+$base-font-family: "mr-eaves-xl-modern", "Arial", sans-serif;
+$base-font-weight: $regular;
+$base-font-size: 13px;
+$base-line-height: 1.4;
+
+// Fixed Font
+$fixed-font-family: monospace;
+$fixed-font-size: 85%;
+$fixed-line-height: $base-line-height;
+
+// Block Quote
+$block-quote-font: "maryam";
+$block-quote-regular: 400;
+$block-quote-bold: 400;
+
+// Headings
+$header-bold-font-weight: 700;
+$header-bold-font-family: sans-serif;
+$header-bold-font-style: bold;
+$header-font-weight: 400;
+$header-font-family: sans-serif;
+$header-font-style: normal;
+
+// Border Properties
+$border-radius: 10px;
+$border-style: solid;
+
+// Width Breakpoints
+$bp-xsmall: 400px;
+$bp-small: 750px;
+$bp-med: 1000px;
+$bp-large: 1600px;
+
+// Height Breakpoints
+$bph-small: 500px;
+$bph-med: 700px;
+
+// ul {
+//   list-style-type: none;
+// }
+@import "colors";
+
+// This imports all modules inside the modules directory that have been added to the _all partial
+
+html {
+  box-sizing: border-box;
+  background-color: $primary-grey;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  border: 1px solid $dark-grey;
+}
+
+// @import "./layouts/all";
+// @import "./modules/all";
+
+td {
+  height: -webkit-fit-content;
+}

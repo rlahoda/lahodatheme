@@ -1,0 +1,24 @@
+.full-width {
+  width: 100%;
+  padding: 0 5%;
+  // background-color: pink;
+}
+
+.full-width--nopad {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.paragraph--type--layout-full-width {
+  width: 100%;
+  padding: 0 2%;
+
+  @include respond-at($bp-med) {
+    padding: 0 5%;
+  }
+
+  @include respond-at($bp-large) {
+    padding: 0 10%;
+  }
+}

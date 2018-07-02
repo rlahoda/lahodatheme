@@ -1,0 +1,52 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see template_preprocess_field()
+ */
+#}
+{% set offset = 0 %}
+{% set colors = [ 'pie-chart_slice_color_accent-1-extralight', 'pie-chart_slice_color_accent-1-light', 'pie-chart_slice_color_accent-1', 'pie-chart_slice_color_accent-1-dark', 'pie-chart_slice_color_accent-1-extradark'] %}
+
+{% for item in items %}
+  {% if loop.first %}
+    <circle r="15.915" cx="15.915" cy="15.915" stroke-dasharray="{{ item.content }} 100" class="{{ cycle(colors, loop.index0)}}" stroke-dashoffset="0";/>
+    {% set offset = (item.content["#markup"] * 1) %}
+  {% else %}
+    <circle r="15.915" cx="15.915" cy="15.915" stroke-dasharray="{{ item.content }} 100" class="{{ cycle(colors, loop.index0)}}" stroke-dashoffset="-{{ offset }}" ;/>
+    {#{{ dpm(item.content["#markup"] * 1)}} This multiplying the value by 1 weirdness is to change the string into a number that can then be added below. #}
+    {#{{ dpm(offset)}}#}
+    {% set offset = (item.content["#markup"] * 1) + offset %}
+  {% endif %}
+{% endfor %}

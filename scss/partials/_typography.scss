@@ -1,0 +1,136 @@
+body {
+  font-family: $base-font-family;
+  font-style: normal;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+  color: $dark-text;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+
+  &:visited {
+    color: inherit;
+  }
+
+  // &:hover {
+  //   color:
+  // }
+}
+
+b,
+strong {
+  font-weight: $bold;
+}
+
+h1 {
+  font-size: 2em;
+  text-align: center;
+  font-weight: $light;
+  // color: $accent-clr;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
+
+  @include respond-at($bp-med) {
+    font-size: 3em;
+  }
+
+  @include respond-at($bp-large) {
+    font-size: 5em;
+  }
+}
+
+.main-title__text {
+  margin: 0;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin: 0;
+  font-weight: $light;
+  // color: $accent-clr;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
+
+  @include respond-at($bp-med) {
+    font-size: 2.75em;
+  }
+
+  @include respond-at($bp-large) {
+    font-size: 3.5em;
+  }
+}
+
+h3 {
+  font-size: 1.75em;
+  font-weight: $light;
+  margin: 0;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
+
+  @include respond-at($bp-med) {
+    font-size: 2em;
+  }
+
+  @include respond-at($bp-large) {
+    font-size: 2.5em;
+  }
+}
+
+h4 {
+  font-size: 1.2em;
+  font-weight: $bold;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
+
+  @include respond-at($bp-med) {
+    font-size: 1.2em;
+  }
+
+  @include respond-at($bp-large) {
+    font-size: 1.2em;
+  }
+}
+
+p {
+  font-size: 1.2em;
+  font-weight: $light;
+  margin: 0;
+  padding: 0.5em 0;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
+
+  @include respond-at($bp-med) {
+    font-size: 1.2em;
+  }
+
+  @include respond-at($bp-large) {
+    font-size: 1.2em;
+  }
+}
+
+.center-text {
+  text-align: center;
+}
+
+.margin0 {
+  margin: 0;
+}
+
+blockquote>p {
+  font-family: $block-quote-font;
+  // font-weight: 700;
+  font-size: 2.2em;
+  // font-style: italic;
+}

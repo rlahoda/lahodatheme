@@ -1,0 +1,62 @@
+.paragraph--content-video--75 {
+  width: 100%;
+
+  @include respond-at($bp-med) {
+    width: 90%;
+  }
+
+  @include respond-at($bp-large) {
+    width: 75%;
+    height: 56.25%;
+  }
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.paragraph--content-video--60 {
+  width: 100%;
+
+  @include respond-at($bp-med) {
+    width: 90%;
+  }
+
+  @include respond-at($bp-large) {
+    width: 60%;
+  }
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.paragraph--content-video--50 {
+  width: 100%;
+
+  @include respond-at($bp-med) {
+    width: 70%;
+  }
+
+  @include respond-at($bp-large) {
+    width: 50%;
+  }
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.paragraph--content-video--40 {
+  width: 100%;
+
+  @include respond-at($bp-med) {
+    width: 60%;
+  }
+
+  @include respond-at($bp-large) {
+    width: 40%;
+  }
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.paragraph--content-video--100 {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}

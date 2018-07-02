@@ -1,0 +1,15 @@
+name: 'Lahoda'
+type: theme
+description: 'A theme for the Lahodas'
+core: 8.x
+base theme: stable
+regions:
+  top_nav: 'Top Nav'
+  nav2: 'Top Nav 2'
+  nav3: 'Mobile Nav'
+  alert: 'Alert'
+  content: 'Content'
+  footer: 'Footer'
+  utility: 'Utility'
+libraries:
+  - lahoda/global-styling

@@ -1,0 +1,19 @@
+.user-login-form {
+  margin: 5%;
+  padding: 10px;
+  background-color: $light-grey;
+  border: 1px $dark-grey solid;
+  border-radius: 5px;
+  width: 90%;
+  @include respond-at($bp-med) {
+    width: 50%;
+  }
+
+}
+
+.form-required {
+  color: red;
+  &::after {
+    content:'*';
+  }
+}

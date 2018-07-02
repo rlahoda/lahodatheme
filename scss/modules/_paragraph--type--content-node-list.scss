@@ -1,0 +1,11 @@
+.paragraph--type--content-node-list--content {
+  // background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  @include respond-at($bp-small) {
+    flex-direction: row;
+  }
+}

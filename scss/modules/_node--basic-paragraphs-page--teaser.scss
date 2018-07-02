@@ -1,0 +1,22 @@
+.node--basic-paragraphs-page--teaser--container {
+  text-align: center;
+  flex: 1 1 auto;
+  width: 100%;
+  @include respond-at($bp-small) {
+    width: 25%;
+  }
+}
+
+.node--basic-paragraphs-page--teaser--title {
+  font-size: 1.4em;
+  font-weight: bolder;
+}
+
+.node--basic-paragraphs-page--teaser--body {
+
+}
+
+.node--basic-paragraphs-page--teaser--links {
+  margin-bottom: 16px;
+  text-align: right;
+}

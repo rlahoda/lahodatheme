@@ -1,0 +1,24 @@
+button,
+.button {
+  border-style: $border-style;
+  border-width: 0;
+  // border-radius: $border-radius;
+  padding: 10px 20px;
+  width: auto;
+  display: inline-block;
+  // margin: 5px;
+  font-size: 1.25em;
+  background-color: $accent-1;
+
+  &:hover {
+    background-color: $accent-1-dark;
+  }
+
+  &:active {
+    background-color: $accent-1-light;
+  }
+}
+
+.form-submit {
+  color: #fff;
+}
